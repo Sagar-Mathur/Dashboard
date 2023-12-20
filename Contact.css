@@ -1,0 +1,29 @@
+.container{
+    margin-left: 1400px;
+}
+.sidenav
+{
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  background-color: #000;
+  overflow-x: hidden;
+  padding-top: 15px;
+
+}
+.sidenav a,.dropdown-btn
+{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.sidenav a:hover,.dropdown-btn:hover
+{
+  color: #f1f1f1;
+}
