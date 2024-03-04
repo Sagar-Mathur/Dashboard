@@ -1,59 +1,79 @@
-import './App.css'
+import './App.css';
 import Home from './Home';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
-function Loginpage(){
-    function Login1(){
-    let text='{"employees":['+
-	'{"firstname":"sagar","password":"mathur"},'+
-	'{"firstname":"anil","password":"yadav"}]}';
-	
+function Loginpage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [userdata, setUserData] = useState(null);
 
-	const obj=JSON.parse(text);
-	var a=document.getElementById("first").value;
-    var b=document.getElementById("second").value;
-
-	
-	console.log(text)
-
-  var status=0;
-		for(var i=0;i<obj.employees.length;i++)
-		{
+    const fetchdata = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/fetchUserData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username,password})
+            });
+            const data = await response.json();
+            if (response.ok) {
+                founduser(data) // Corrected this line
+            } else {
+                alert('User not found');
+            }
+        } catch (error) {
+            console.error('Fetching error', error);
+        
+	   }
+    };
+	function founduser(data){
+		let pass=document.getElementById('password').value
+		let user=document.getElementById('username').value
+		console.log(pass+""+user)
+		
+		//console.log(pass +""+ user)
+		console.log(data)
+	   
+	   
+		if(pass==data[0].password&&user==data[0].username){
+			window.location.href='/home';
+		  alert('suceess')
 			
-			if(a==obj.employees[i].firstname && b==obj.employees[i].password)
-			{
-						status=1;
-						break;
-			}
-		}
-		if(status==1)
-		{
-			window.location="/Home"
-		}
-		else
-		{
-			alert("wrong password");
-		}
-    } 
-    return(
-	<div className='formbody'>
-<h1 className='xyz'>login page</h1>
-<div className='login'>
- <label>UserName :</label><br/>
-<input type='text' className='name' id='first' required />
-<br/>
-<br/>
-<label>Password :</label><br/>
-<input type='password' className='password' id='second' required/>
-<br/>
-<br/>
+		  }
+		  else{
+			alert('user or password invalid')
+		  }
+		
 
-<input type='submit' onClick={Login1}/>
-<br/>
-<Link className="" to="/new">New Registration</Link>
-<br/>
-</div>
-</div>
-    )
+	}
+
+    return (
+        <div className='formbody'>
+            <h1 className='xyz'>Login page</h1>
+            <div className='login'>
+                <label>UserName :</label><br />
+                <input type='text' placeholder='Username' className='name' value={username} onChange={(e) => setUsername(e.target.value)} id='username' />
+                <br /><br />
+                <label>Password :</label><br />
+                <input type='password' placeholder='Password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} id='password' />
+                <br /><br />
+                <button onClick={fetchdata}>Login</button>
+                <br />
+                <Link className="" to="/new">New Registration</Link>
+                <br />
+                {userdata && (
+                    <div>
+                        <h2>User Data</h2>
+                        <p>Username: {userdata[0].username}</p>
+                        <p>Email: {userdata[0].email}</p>
+                        <p>Password: {userdata[0].password}</p>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 }
-export default Loginpage;
+
+export default Loginpage;
