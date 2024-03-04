@@ -7,16 +7,19 @@ import Cart from './Cart';  // Adjust this path
 
 
 function Course(){
-    
+    function showtohide(){
+    }
+
     return(
         <div>
-       
-		
 		<div className="sec2-arrivals">
-	        <Provider store={store}>
+	        <Provider store={store}> 
           <div className="App">
               <Product />
-              <Cart />
+            
+              <div className='show-products' id='showtohide'>
+                <Cart/>
+              </div >
           </div>
              </Provider>
             <h1 id='cart'></h1>	
