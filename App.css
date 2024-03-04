@@ -1,4 +1,5 @@
 
+
 body{
 	background-color: lightgray;
 
@@ -40,19 +41,19 @@ body{
 }
 .nav-bar-1 .photo{
 	width: 30px;
-	margin-left: 1150px;
+	margin-left: 1190px;
 	margin-top: 4px;
 	position: absolute;
 }
 .nav-bar-1 .bag{
 	width: 30px;
-	margin-left: 1200px;
+	margin-left: 1145px;
 	margin-top: 4px;
 	position: absolute;
 }
 .nav-bar-1 h3{
 	margin-top: 6px;
-	margin-left: 1190px;
+	margin-left: 1235px;
 }
 .logo{
 	
@@ -74,6 +75,10 @@ body{
 	color: white;
 
 }
+.inner-logo{
+	
+	width: 200px;
+}
 .logo h2{
 	
 	margin-top: 0px;
@@ -85,6 +90,7 @@ body{
 	font-family: arial;
 	background-color: #7d64d8;
 	height: 32px;
+	
 }
 .logo p{
 	position: absolute;
@@ -101,6 +107,7 @@ body{
 	margin-left:50px;
 	border-radius: 10px;
 }
+
 .items ul{
 	list-style-type: none;
 	margin-top: 150px;
@@ -336,14 +343,16 @@ body{
 	word-spacing: 30px;
 }
 .calender table{
-	padding-left: 20px;
+	padding-left: 18px;
 	border-spacing: 0 10px;
 }
 .calender tr th{
 	padding: 5px;
+	border: none;
 }
 .calender tr td{
 	padding-left: 10px;
+	border: none;
 }
 .highlight{
 	background-color: blue;
@@ -440,7 +449,6 @@ body{
 	text-align: center;
 	
 }
-
 
 
 
