@@ -129,6 +129,50 @@
 .minus1:hover{
 	display: block;
 }
+.images{
+	position: absolute;
+	justify-content: center;
+	margin-top: 100px;
+	margin-left: 40px;
+
+}
+.images img{
+	height: 350px;
+	width: 300px;
+	padding: 10px;
+}
+
+/*-----------------------------------addtocart-product-display------------------------------------------------*/
+.show-products{
+	width: 500px;
+	height: 0px;
+	background-color: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: -57px;
+	
+}
+.showtohide-btn{
+position: absolute;
+margin-top: 3px;
+margin-left: 236px;
+background-color: red;
+border: none;
+
+
+}
+
+
+
+
+	
+
+
+
+
+
+
 
 
 
